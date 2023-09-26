@@ -7,3 +7,4 @@ export * from './lib/account/account.change-profile';
 export * from './lib/course/course.get-course';
 
 export * from './lib/payment/payment.generate-link';
+export * from './lib/payment/payment.check';
