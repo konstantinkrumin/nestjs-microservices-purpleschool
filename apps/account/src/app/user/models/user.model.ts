@@ -1,4 +1,3 @@
-import { UserCoursesSchema } from './user.model';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import {
