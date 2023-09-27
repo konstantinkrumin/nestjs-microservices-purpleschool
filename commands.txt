@@ -3,3 +3,9 @@ nx serve [APP NAME]
 
 // SERVE MULTIPLE ALL APPS SIMULTANEOUSLY
 nx run-many --target=serve --all --parallel=10
+
+// RUN TESTS ON ALL SERVICES 
+nx run-many --target=test --all --parallel=10
+
+// RUN TEST ON A SPECIFIC SERVICE CALLED account
+nx run test account
