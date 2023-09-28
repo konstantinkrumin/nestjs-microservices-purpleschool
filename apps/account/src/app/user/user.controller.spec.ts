@@ -15,6 +15,8 @@ import {
   CourseGetCourse,
   PaymentGenerateLink,
   AccountBuyCourse,
+  PaymentCheck,
+  AccountCheckPayment,
 } from '@purpleschool/contracts';
 import { verify } from 'jsonwebtoken';
 
@@ -118,6 +120,22 @@ describe('UserController', () => {
         courseId,
       })
     ).rejects.toThrowError();
+  });
+
+  it('PaymentCheck', async () => {
+    rmqService.mockReply<PaymentCheck.Response>(PaymentCheck.topic, {
+      status: 'success',
+    });
+
+    const res = await rmqService.triggerRoute<
+      AccountCheckPayment.Request,
+      AccountCheckPayment.Response
+    >(AccountCheckPayment.topic, {
+      userId,
+      courseId,
+    });
+
+    expect(res.status).toEqual('status');
   });
 
   afterAll(async () => {
